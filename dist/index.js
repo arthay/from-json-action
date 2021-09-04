@@ -153,23 +153,18 @@ const core = __webpack_require__(470);
 function run() {
   try {
     const inputKeys = core.getInput('keys');
-    const value = inputKeys.split(',').map(item => item.trim());
-    core.setOutput('item', value);
-    // const json = core.getInput('json');
+    const json = core.getInput('json');
+
+    let value = JSON.parse(json);
+    const array = inputKeys.split(',').map(item => item.trim());
+
+    for (const item of array) {
+      if (value[item]) {
+        value = value[item]
+      }
+    }
     //
-    // let value = JSON.parse(json);
-    // let item1 = '';
-    //
-    // for (const item of inputArray) {
-    //   item1 = item;
-    //   if (value[item]) {
-    //     value = value[item]
-    //   }
-    // }
-    //
-    // core.setOutput('value', JSON.stringify(value));
-    // core.setOutput('array', JSON.stringify(inputArray));
-    // core.setOutput('item', typeof inputArray);
+    core.setOutput('value', JSON.stringify(value));
   } catch (err) {
     core.setFailed(err.message);
   }
