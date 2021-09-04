@@ -17,7 +17,7 @@ function run() {
 
     core.setOutput('value', JSON.stringify(value));
     core.setOutput('array', JSON.stringify(inputArray));
-    core.setOutput('item', JSON.stringify(item1));
+    core.setOutput('item', typeof inputArray);
   } catch (err) {
     core.setFailed(err.message);
   }
