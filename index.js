@@ -3,7 +3,7 @@ const core = require('@actions/core');
 function run() {
   try {
     const inputArray = core.getInput('array');
-    core.setOutput('item', typeof inputArray);
+    core.setOutput('item', inputArray);
     // const inputArray = JSON.parse(core.getInput('array'));
     // const json = core.getInput('json');
     //
