@@ -152,10 +152,16 @@ const core = __webpack_require__(470);
 
 function run() {
   try {
-    const key = core.getInput('key');
+    const inputArray = JSON.parse(core.getInput('array'));
     const json = core.getInput('json');
 
-    const value = JSON.parse(json)[key];
+    let value = JSON.parse(json);
+
+    for (const item of inputArray) {
+      if (value[item]) {
+        value = value[item]
+      }
+    }
 
     core.setOutput('value', JSON.stringify(value));
   } catch (err) {

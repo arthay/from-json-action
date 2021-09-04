@@ -2,8 +2,8 @@ name: split-by
 author: Rishabh Gupta
 description: Split the string by the given string
 inputs:
-  key:
-    description: "Key of json"
+  inputArray:
+    description: "Array of keys"
     required: true
     default: ""
   json:
