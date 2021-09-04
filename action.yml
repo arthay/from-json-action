@@ -1,0 +1,21 @@
+name: split-by
+author: Rishabh Gupta
+description: Split the string by the given string
+inputs:
+  key:
+    description: "Key of json"
+    required: true
+    default: ""
+  json:
+    description: "json"
+    required: true
+    default: ""
+outputs:
+  value:
+    description: "value of json"
+runs:
+  using: node12
+  main: "dist/index.js"
+branding:
+  icon: "zap-off"
+  color: "gray-dark"
